@@ -4,13 +4,14 @@
 replicaCount: 1
 image:
   repository: 870594606895.dkr.ecr.eu-west-2.amazonaws.com/sre-camp18
-  tag: 1.0.3
+  tag: 1.0.6
   pullPolicy: IfNotPresent
 service:
   name: nginx
   type: ClusterIP
   externalPort: 80
   internalPort: 80
+  nodePort: 30000
 ingress:
   enabled: false
   # Used to create an Ingress record.
@@ -35,3 +36,5 @@ resources: {}
   # requests:
   #  cpu: 100m
   #  memory: 128Mi
+mongodb:
+  fullname: sre-mongodb
