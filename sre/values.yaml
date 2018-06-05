@@ -8,9 +8,9 @@ image:
   pullPolicy: IfNotPresent
 service:
   name: nginx
-  type: ClusterIP
+  type: NodePort
   externalPort: 80
-  internalPort: 80
+  internalPort: 8080
   nodePort: 30000
 ingress:
   enabled: false
