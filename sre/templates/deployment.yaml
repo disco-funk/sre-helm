@@ -32,8 +32,15 @@ spec:
           volumeMounts:
           - mountPath: /log
             name: log-volume
+        - name: sre-elk-logstash
+          image: 870594606895.dkr.ecr.eu-west-2.amazonaws.com/sre-logstash
+          ports:
+          - containerPort: 5601
+          resources: {}
+          volumeMounts:
+          - name: log-volume
+            mountPath: /log
       volumes:
       - name: log-volume
-        awsElasticBlockStore:
-         volumeID: vol-0a4f5bf9f76ff284e
-         fsType: ext4
+        hostPath:
+          path: /var/log
