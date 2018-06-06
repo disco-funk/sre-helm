@@ -38,5 +38,3 @@ resources: {}
   #  memory: 128Mi
 mongodb:
   fullname: sre-mongodb
-  externalPort: 27017
-  internalPort: 27017
