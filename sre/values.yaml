@@ -4,7 +4,7 @@
 replicaCount: 1
 image:
   repository: 870594606895.dkr.ecr.eu-west-2.amazonaws.com/sre-camp18
-  tag: 1.0.0-SNAPSHOT
+  tag: 2.0.0-SNAPSHOT
   pullPolicy: IfNotPresent
 service:
   name: nginx
