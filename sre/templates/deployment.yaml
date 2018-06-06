@@ -24,6 +24,14 @@ spec:
             - name: mongodb
               containerPort: 27017
           resources:
+          volumeMounts:
+            - mountPath: /log
+              name: log-volume
+      volumes:
+        - name: log-volume
+          awsElasticBlockStore:
+            volumeID: vol-0a4f5bf9f76ff284e
+            fsType: ext4
 {{ toYaml .Values.resources | indent 12 }}
     {{- if .Values.nodeSelector }}
       nodeSelector:
