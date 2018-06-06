@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "sre.fullname" . }}
+  labels:
+    app: {{ template "sre.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  ports:
+    - port: {{ .Values.mongodb.externalPort }}
+      targetPort: {{ .Values.mongodb.internalPort }}
+      protocol: HTTP
+      name: {{ .Values.mongodb.fullname }}
+  selector:
+    app: {{ template "sre.name" . }}
+    release: {{ .Release.Name }}
