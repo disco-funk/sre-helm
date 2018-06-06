@@ -11,7 +11,7 @@ spec:
   ports:
     - port: {{ .Values.mongodb.externalPort }}
       targetPort: {{ .Values.mongodb.internalPort }}
-      protocol: HTTP
+      protocol: TCP
       name: {{ .Values.mongodb.fullname }}
   selector:
     app: {{ template "sre.name" . }}
